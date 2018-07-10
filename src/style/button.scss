@@ -1,0 +1,14 @@
+.button {
+    grid-row: 3/4;
+    grid-column: 5/10;
+
+    height: 50px;
+    width: 350px;
+    background-color: $light-blue-one;
+    color: white;
+    clip-path: polygon(7% 0%, 100% 0%, 93% 100%, 0% 100%);
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.2em;
+    justify-self: center;
+    box-shadow: 0px 0px 30px 4px rgba(0, 0, 0, .6);
+}
