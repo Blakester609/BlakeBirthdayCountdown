@@ -2,6 +2,10 @@ $light-blue-one: #5496e6;
 $light-blue-two: #518bde;
 $color-gray-one: #444;
 $color-yellow-one: #f7d754;
+$color-gray-two: #e6e6e6;
+
+$font-roboto: "Roboto Condensed";
+$font-mont: "Montserrat";
 
 .grid {
     display: grid;
@@ -16,9 +20,22 @@ $color-yellow-one: #f7d754;
         justify-self: center;
         font-size: 1.2em;
         color: white;
-        font-family: 'Montserrat';
+        font-family: $font-mont;
         font-weight: 300;
         line-height: 1em;
         padding: 55px 75px;
+    }
+
+    &__remaining {
+        grid-row: 4/5;
+        grid-column: 1/-1;
+        text-align: center;
+        margin-top: 33px;
+        color: $color-gray-one;
+        font-family: $font-mont;
+        font-size: 22px;
+        font-weight: 300;
+        line-height: 27px;
+        text-align: center;
     }
 }
