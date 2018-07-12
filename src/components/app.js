@@ -41,7 +41,7 @@ export default class App extends Component {
     var birthMonth = bday.getMonth();
 
     var timeBetween = today.getTime() - bday.getTime();
-    var daysOld = Math.floor(timeBetween / (100 * 60 * 60 * 24));
+    var daysOld = Math.floor(timeBetween / (1000 * 60 * 60 * 24));
     var age = Number((daysOld/365).toFixed(0));
     this.setState({
       age,
@@ -71,7 +71,7 @@ export default class App extends Component {
       var now = moment().toDate().getTime();
       var distance = countDownDate - now;
 
-      var days = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+      var days = Math.floor(distance / (1000 * 60 * 60 * 24));
       var hours = Math.floor(
         (distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)
       );
@@ -87,6 +87,8 @@ export default class App extends Component {
       };
 
       this.setState({ timeRemaining });
+
+      console.log(this.state.timeRemaining);
 
       if(distance < 0) {
         clearInterval(this.timer);
@@ -106,9 +108,9 @@ export default class App extends Component {
       ]
     } else {
       return [
-        <Picker callback={(date) => this.handleChange(date)}/>,
-        Button("Generate Countdown", () => this.setState({ active: true }))
-      ]
+        <Picker startDate={this.state.startDate} callback={(date) => this.handleChange(date)}/>,
+        Button("Generate Countdown", () => this.handleGenerate())
+      ];
     }
   }.bind(this)
 
