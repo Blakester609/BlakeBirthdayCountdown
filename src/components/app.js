@@ -88,8 +88,6 @@ export default class App extends Component {
 
       this.setState({ timeRemaining });
 
-      console.log(this.state.timeRemaining);
-
       if(distance < 0) {
         clearInterval(this.timer);
       }
@@ -101,7 +99,7 @@ export default class App extends Component {
   renderItems = function () {
     if (this.state.active) {
       return [
-        <Clock />,
+        <Clock timeRemaining={ this.state.timeRemaining }/>,
         changeDate('Change Date', () => this.setState({ active: false })),
         LargeText('04/03'),
         <label className="grid__remaining">Remaining until your 21st birthday</label>
