@@ -46,7 +46,7 @@ export default class App extends Component {
 
     var timeBetween = today.getTime() - bday.getTime();
     var daysOld = Math.floor(timeBetween / (1000 * 60 * 60 * 24));
-    var age = Number((daysOld/365).toFixed(0));
+    var age = Math.ceil(Number(daysOld/365));
     this.setState({
       age,
       active: true
@@ -105,7 +105,7 @@ export default class App extends Component {
         <Clock timeRemaining={ this.state.timeRemaining }/>,
         changeDate('Change Date', () => this.setState({ active: false })),
         LargeText('04/03'),
-        <label className="grid__remaining">Remaining until your 21st birthday</label>
+        <label className="grid__remaining">Remaining until you turn {this.state.age}</label>
       ]
     } else {
       return [
