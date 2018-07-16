@@ -27,6 +27,7 @@ export default class App extends Component {
 
   handleChange = function(date) {
     console.log('APP JS HANDLE CHANGE', date._d);
+    clearInterval(this.timer);
     this.setState({
       startDate: date
     });
@@ -36,6 +37,9 @@ export default class App extends Component {
     clearInterval(this.timer)
 
     var bday = this.state.startDate.toDate();
+    bday.setHours(0);
+    bday.setMinutes(0);
+    bday.setSeconds(0);
     var today = new Date();
     var currentMonth = today.getMonth();
     var birthMonth = bday.getMonth();
@@ -58,8 +62,7 @@ export default class App extends Component {
 
       if(birthDay > currentDay) {
         bday.setFullYear(today.getFullYear())
-      }
-      if(birthDay <= currentDay) {
+      } else if(birthDay <= currentDay) {
         bday.setFullYear(today.getFullYear() + 1)
       }
     }
