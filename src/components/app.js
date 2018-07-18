@@ -43,7 +43,7 @@ export default class App extends Component {
     var today = new Date();
     var currentMonth = today.getMonth();
     var birthMonth = bday.getMonth();
-
+    console.log('Hi there');
 
     var timeBetween = today.getTime() - bday.getTime();
     var daysOld = Math.floor(timeBetween / (1000 * 60 * 60 * 24));
